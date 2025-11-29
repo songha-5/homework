@@ -53,6 +53,7 @@ body {
   height: 64px;
   overflow: hidden;
   border-radius: 50%;
+  aspect-ratio: 1/1;
 }
 .avatars-wrap .avatars-list li .login-status {
   position: absolute;
