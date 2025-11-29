@@ -1,1 +1,76 @@
 /* 여기에 스타일을 구현해 주세요 */
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  background-color: #f9fafb;
+  justify-content: center;
+  align-items: center;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.avatars-wrap {
+  /* 
+    display: flex를 추가하면 ul하단의 여백이 사라져서 추가했습니다. 
+    아래 그와같은 이유로 추가한 flex도 있습니다.
+    font-size: 0을주면 사라지긴하는데 어떤게 나은지 모르겠습니다.
+  */
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+.avatars-wrap .avatars-list {
+  display: inline-block;
+  list-style: none;
+  padding: 0 20px 27px 40px;
+  margin: 0;
+  width: 336px;
+}
+.avatars-wrap .avatars-list li {
+  display: flex;
+  position: relative;
+  margin-right: 20px;
+  margin-top: 20px;
+  float: left;
+}
+
+.avatars-wrap .avatars-list li img {
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.avatars-wrap .avatars-list li .login-status {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.avatars-wrap .avatars-list li .login-status .login-icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 18px;
+  height: 18px;
+  font-size: 0;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background-color: #dbdbdb;
+  border: 1px solid #fff;
+}
+.avatars-wrap .avatars-list li .login-status .login-icon.login-online {
+  background-color: #4cfe88;
+}
