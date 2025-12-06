@@ -1,1 +1,267 @@
-/* CSS를 활용하여 레이아웃 및 스타일링을 완성해주세요 */
+/* color */
+:root {
+  --black: #121212;
+  --white: #fff;
+  --default: #dadada;
+  --border: #dadada;
+  --focusring: #24388d;
+  --placeholder: #999;
+  --navergreen: #03cf5d;
+  --focusBG: #e9f0fd;
+  --warningRed: #ff1414;
+  --IP: #999;
+}
+
+/* fieldset */
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+/* legend */
+legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  clip-path: polygon(0 0, 0 0, 0 0);
+  padding: 0;
+  border-width: 0;
+}
+
+.login-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100%;
+  padding: 1.25rem;
+  font-size: 1rem;
+
+  .login-items {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    width: 100%;
+
+    .logo {
+      margin: 0 auto;
+      width: 164px;
+      height: 32px;
+    }
+
+    .login-form {
+      display: flex;
+      flex-flow: column nowrap;
+      margin-block-start: 2.8125rem;
+    }
+
+    .noti {
+      margin-block-start: 0.4375rem;
+      font-size: 0.75rem;
+      color: var(--warningRed);
+    }
+  }
+
+  /* login / password 폼 */
+  .input-form {
+    fieldset {
+      input {
+        &:not(:focus) ~ .noti,
+        &:placeholder-shown ~ .noti {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          overflow: hidden;
+          margin: -1px;
+          clip-path: polygon(0 0, 0 0, 0 0);
+          padding: 0;
+          border-width: 0;
+        }
+        &:focus:invalid:not(:placeholder-shown) ~ .noti {
+          position: relative;
+          width: auto;
+          height: auto;
+          margin-inline-start: 0;
+          margin-block-start: 0.4375rem;
+          clip-path: unset;
+          padding: 0;
+          border-width: 0;
+        }
+      }
+
+      & + & {
+        padding-block-start: 0.625rem;
+      }
+    }
+    /* label */
+    label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      margin: -1px;
+      clip-path: polygon(0 0, 0 0, 0 0);
+      padding: 0;
+      border-width: 0;
+    }
+    /* input */
+    input {
+      width: 100%;
+      padding: 0.875rem;
+      border: 1px solid var(--border);
+      &:placeholder {
+        color: var(--placeholder);
+      }
+      &:focus {
+        outline: 1px solid var(--navergreen);
+        background-color: var(--focusBG);
+        box-shadow: 0 0 4px var(--navergreen);
+      }
+    }
+    .noti {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      margin: -1px;
+      clip-path: polygon(0 0, 0 0, 0 0);
+      padding: 0;
+      border-width: 0;
+    }
+  }
+
+  /* 로그인 서브 */
+  .login-wrapper-sub {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-block-start: 0.625rem;
+    order: 1;
+    flex-direction: row-reverse;
+
+    /* 수정중 */
+    .login-keep {
+      input[type='checkbox'] {
+        overflow: hidden;
+        position: absolute;
+        left: -1000px;
+        width: 1px;
+        height: 1px;
+
+        & + label {
+          display: flex;
+          align-items: center;
+          font-size: 0.875rem;
+          cursor: pointer;
+
+          .check-icon {
+            display: flex;
+            align-items: center;
+            margin-inline-end: 0.25rem;
+
+            svg:first-child {
+              display: none;
+            }
+            svg:last-child {
+              display: inline;
+            }
+          }
+        }
+        &:checked + label {
+          .check-icon {
+            svg:first-child {
+              display: inline;
+            }
+            svg:last-child {
+              display: none;
+            }
+          }
+        }
+        &:focus ~ label .check-icon {
+          outline: 2px solid var(--focusring);
+        }
+      }
+    }
+
+    .login-IP {
+      display: none;
+      align-items: center;
+      font-size: 1rem;
+
+      input[type='checkbox'] {
+        overflow: hidden;
+        position: absolute;
+        left: -1000px;
+        width: 1px;
+        height: 1px;
+
+        /* 체크박스 스타일 */
+        & + label {
+          margin-inline-start: 0.5rem;
+          font-size: 1rem;
+          font-weight: 700;
+          align-content: center;
+          cursor: pointer;
+
+          &::before {
+            content: 'OFF';
+            color: var(--IP);
+          }
+        }
+        &:checked + label {
+          &::before {
+            content: 'ON';
+            color: var(--navergreen);
+          }
+        }
+        &:focus + label {
+          &::before {
+            outline: 2px solid var(--focusring);
+          }
+        }
+      }
+    }
+  }
+
+  /* 로그인 버튼 */
+  .login-button {
+    margin-block-start: 1.25rem;
+    order: 0;
+    .login-button-item {
+      width: 100%;
+      text-align: center;
+      font-weight: 500;
+      font-size: 1rem;
+      background-color: var(--navergreen);
+      color: var(--white);
+      height: 45px;
+      align-content: center;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    .login-wrapper {
+      justify-content: center;
+      .login-items {
+        width: 500px;
+        .logo {
+          width: 230px;
+          height: 44px;
+        }
+        .login-form {
+          margin-block-start: 3.125rem;
+        }
+      }
+
+      .login-wrapper-sub {
+        flex-direction: row;
+        .login-IP {
+          display: flex;
+        }
+      }
+    }
+  }
+}
